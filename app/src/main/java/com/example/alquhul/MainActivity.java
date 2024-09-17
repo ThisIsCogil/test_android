@@ -1,6 +1,8 @@
 package com.example.alquhul;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -51,11 +53,22 @@ public class MainActivity extends AppCompatActivity {
                 String alamatmu = edtalamat.getText().toString();
                 String bdate = edit_TextDate.getText().toString();
 
-                Toast.makeText(MainActivity.this, "Nama Lengkap: " + namalengkap+ ", NIM: " + hasilnim +
-                        ", Email: " + Email + ", NO. Handphone: " + hp + ", Password: " + password + ", Username: " + username +
-                        ", ALamat: " + alamatmu + ", Tanggal Lahir: " + bdate, Toast.LENGTH_LONG).show();
-            }
-        });
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Informasi Mahasiswa");
+                builder.setMessage("Nama Lengkap: " + namalengkap + "\nNIM: " + hasilnim +
+                        "\nEmail: " + Email + "\nNO. Handphone: " + hp +
+                        "\nPassword: " + password + "\nUsername: " + username +
+                        "\nAlamat: " + alamatmu + "\nTanggal Lahir: " + bdate);
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+            }});
 
 
 
