@@ -23,7 +23,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText fullname, edtnim, edtemail, edtnomor, edtpass, edtuser, edtalamat, edit_TextDate;
+    EditText fullname, edtnim, edtemail, edtnomor, edtpass, edtuser, edtalamat, edtkonfirmasi, edit_TextDate;
     Spinner edtgender;
     Button btnregister;
 
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fullname = findViewById(R.id.nama);
+        edtkonfirmasi = findViewById(R.id.edt_konfirmasi);
         edtnim = findViewById(R.id.nim);
         edtemail = findViewById(R.id.email);
         edtnomor = findViewById(R.id.nohp);
@@ -56,12 +57,13 @@ public class MainActivity extends AppCompatActivity {
                 String alamatmu = edtalamat.getText().toString();
                 String bdate = edit_TextDate.getText().toString();
                 String gender = edtgender.getSelectedItem().toString();
+                String konfirm = edtkonfirmasi.getText().toString();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Informasi Mahasiswa");
                 builder.setMessage("Nama Lengkap: " + namalengkap + "\nNIM: " + hasilnim +
                         "\nEmail: " + Email + "\nNO. Handphone: " + hp +
-                        "\nPassword: " + password + "\nUsername: " + username +
+                        "\nPassword: " + password + "\nKonfirmasi Password" + konfirm + "\nUsername: " + username +
                         "\nAlamat: " + alamatmu + "\nTanggal Lahir: " + bdate + "\nJenis Kelamin: " + gender);
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override

@@ -45,9 +45,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="86dp"
-        android:layout_height="94dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="50dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,18 +105,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.501" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/pass"
-        android:layout_width="359dp"
-        android:layout_height="57dp"
-        android:hint="Masukkan Password Anda"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.668" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/nohp"
@@ -189,5 +177,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.933" />
+
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="363dp"
+        android:layout_height="54dp"
+        android:ems="10"
+        android:hint="Masukkan Password Anda"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.676" />
+
+    <EditText
+        android:id="@+id/edt_konfirmasi"
+        android:layout_width="363dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="Konfirmasi Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.186" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
