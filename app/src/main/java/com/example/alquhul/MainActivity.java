@@ -24,6 +24,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     EditText fullname, edtnim, edtemail, edtnomor, edtpass, edtuser, edtalamat, edit_TextDate;
+    Spinner edtgender;
     Button btnregister;
 
     @Override
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         edtuser = findViewById(R.id.user);
         edtalamat = findViewById(R.id.alamat);
         btnregister = findViewById(R.id.button);
+        edtgender = findViewById(R.id.spinner_main);
+        edit_TextDate = findViewById(R.id.editTextDate);
 
         btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,13 +55,14 @@ public class MainActivity extends AppCompatActivity {
                 String username = edtuser.getText().toString();
                 String alamatmu = edtalamat.getText().toString();
                 String bdate = edit_TextDate.getText().toString();
+                String gender = edtgender.getSelectedItem().toString();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Informasi Mahasiswa");
                 builder.setMessage("Nama Lengkap: " + namalengkap + "\nNIM: " + hasilnim +
                         "\nEmail: " + Email + "\nNO. Handphone: " + hp +
                         "\nPassword: " + password + "\nUsername: " + username +
-                        "\nAlamat: " + alamatmu + "\nTanggal Lahir: " + bdate);
+                        "\nAlamat: " + alamatmu + "\nTanggal Lahir: " + bdate + "\nJenis Kelamin: " + gender);
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -70,13 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
             }});
 
-
-
-
-
-
-            edit_TextDate = findViewById(R.id.editTextDate);
-
+            // text date untuk pilihan tgl lahir
             edit_TextDate.setOnClickListener(v -> {
                 final Calendar calendar = Calendar.getInstance();
                 int year = calendar.get(Calendar.YEAR);
@@ -92,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
             });
 
 
-        Spinner spinner = findViewById(R.id.spinner_main);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            // Spinner untuk pilihan gender
+        edtgender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 String item = adapterView.getItemAtPosition(position).toString();
@@ -105,13 +103,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        // array untuk pilihan gender
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Laki-Laki");
         arrayList.add("Wanita");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, arrayList);
         adapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
-        spinner.setAdapter(adapter);
+        edtgender.setAdapter(adapter);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
